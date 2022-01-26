@@ -1,0 +1,5 @@
+/Users/bernardocohen/repos/workCpp/build/CMakeFiles/graphs.dir
+/Users/bernardocohen/repos/workCpp/build/CMakeFiles/kruskal.dir
+/Users/bernardocohen/repos/workCpp/build/CMakeFiles/prim.dir
+/Users/bernardocohen/repos/workCpp/build/CMakeFiles/edit_cache.dir
+/Users/bernardocohen/repos/workCpp/build/CMakeFiles/rebuild_cache.dir
