@@ -6,13 +6,16 @@ using namespace std;
 
 void printBFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
 {
+
     int n = graph.size();
     queue<int> q;
     q.push(vertex);
+
     visited[vertex] = true;
 
     while (!q.empty())
     {
+
         int tempVertex = q.front();
         q.pop();
 
@@ -20,6 +23,7 @@ void printBFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
 
         for (int i = 0; i < n; i++)
         {
+
             if (graph[tempVertex][i] && !visited[i])
             {
                 q.push(i);
@@ -28,12 +32,31 @@ void printBFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
         }
     }
 }
+
+void BFS(vector<vector<int>> &graph)
+{
+
+    int n = graph.size();
+    vector<bool> visited(n, false);
+    int counter{};
+
+    for (int i = 0; i < n; i++)
+    {
+        if (!visited[i])
+        {
+            printBFS(graph, i, visited);
+            counter++;
+        }
+    }
+
+    cout << "No. of connected components: " << counter << endl;
+}
+
 void printDFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
 {
 
     int n = graph.size();
     visited[vertex] = true;
-
     cout << vertex << endl;
 
     for (int i = 0; i < n; i++)
@@ -47,41 +70,22 @@ void printDFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
 
 void DFS(vector<vector<int>> &graph)
 {
+
     int n = graph.size();
     vector<bool> visited(n, false);
 
-    int counterConnections{};
+    int counter{};
 
     for (int i = 0; i < n; i++)
     {
         if (!visited[i])
         {
             printDFS(graph, i, visited);
-            counterConnections++;
+            counter++;
         }
     }
 
-    cout << "No. of Connected components: " << counterConnections << endl;
-}
-
-void BFS(vector<vector<int>> &graph)
-{
-
-    int n = graph.size();
-    vector<bool> visited(n, false);
-
-    int counterConnections{};
-
-    for (int i = 0; i < n; i++)
-    {
-        if (!visited[i])
-        {
-            printBFS(graph, i, visited);
-            counterConnections++;
-        }
-    }
-
-    cout << "No. of connections: " << counterConnections << endl;
+    cout << "No. of connected components: " << counter << endl;
 }
 
 void interactiveInputs()
