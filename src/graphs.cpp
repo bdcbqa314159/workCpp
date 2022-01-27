@@ -10,20 +10,16 @@ void printBFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
     int n = graph.size();
     queue<int> q;
     q.push(vertex);
-
     visited[vertex] = true;
 
     while (!q.empty())
     {
-
         int tempVertex = q.front();
         q.pop();
-
         cout << tempVertex << endl;
 
         for (int i = 0; i < n; i++)
         {
-
             if (graph[tempVertex][i] && !visited[i])
             {
                 q.push(i);
@@ -37,19 +33,21 @@ void BFS(vector<vector<int>> &graph)
 {
 
     int n = graph.size();
+    int count{};
+
     vector<bool> visited(n, false);
-    int counter{};
 
     for (int i = 0; i < n; i++)
     {
+
         if (!visited[i])
         {
             printBFS(graph, i, visited);
-            counter++;
+            count++;
         }
     }
 
-    cout << "No. of connected components: " << counter << endl;
+    cout << "No. of connected components: " << count << endl;
 }
 
 void printDFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
@@ -57,6 +55,7 @@ void printDFS(vector<vector<int>> &graph, int vertex, vector<bool> &visited)
 
     int n = graph.size();
     visited[vertex] = true;
+
     cout << vertex << endl;
 
     for (int i = 0; i < n; i++)
@@ -72,20 +71,21 @@ void DFS(vector<vector<int>> &graph)
 {
 
     int n = graph.size();
-    vector<bool> visited(n, false);
+    int count{};
 
-    int counter{};
+    vector<bool> visited(n, false);
 
     for (int i = 0; i < n; i++)
     {
+
         if (!visited[i])
         {
             printDFS(graph, i, visited);
-            counter++;
+            count++;
         }
     }
 
-    cout << "No. of connected components: " << counter << endl;
+    cout << "No. of connected components: " << count << endl;
 }
 
 void interactiveInputs()
